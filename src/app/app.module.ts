@@ -3,10 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HaiPageHeaderComponent } from './hai-page-header/hai-page-header.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HaiPageHeaderComponent
   ],
   imports: [
     BrowserModule,
