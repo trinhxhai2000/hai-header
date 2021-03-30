@@ -1,8 +1,13 @@
 <div class="header-container">
+  <div class="header-member">
+    <ng-container *ngTemplateOutlet="_title2" ></ng-container>
+  </div>
   <button id="header-back" class="header-member" (click)="clickBack()">
     &#8249;
   </button>
-  <h2 class="header-member">{{title}}</h2>:
+  <!-- <h2 class="header-member">{{title}}</h2>: -->
   <h4 class="header-member">{{subtitle}}</h4>
-
 </div>
+
+
+

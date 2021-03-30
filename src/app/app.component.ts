@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {HaiPageHeaderComponent} from './hai-page-header/hai-page-header.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,6 +7,13 @@ import {HaiPageHeaderComponent} from './hai-page-header/hai-page-header.componen
 export class AppComponent {
   myTitle = "Parent title"
   mySubtitle = "Parent subtitle"
+  isDisable = false
+  doDisable(){
+    this.isDisable = ! this.isDisable;
+    console.log(this.isDisable)
+  }
+  //
+  exIsCheck : boolean = false
   parentClickEvent(){
     alert("this is parent click event")
   }

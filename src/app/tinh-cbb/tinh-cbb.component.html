@@ -1,0 +1,7 @@
+<div class="custom-select" style="width:200px;">
+  <input >
+  <select>
+    <option value="0">Chọn tỉnh:</option>
+    <option *ngFor="let tinh of tinhs" [value]="huyen.id" (click)="selectHuyen(tinh.id)">{{tinh.name}}</option>
+  </select>
+</div>
