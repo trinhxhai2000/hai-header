@@ -8,14 +8,14 @@ import { Tinh } from './tinh';
 })
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
-    const tinh = [
+    const tinhs = [
       { id: 1, name: 'Bắc Giang' },
       { id: 2, name: 'Hà Nội' },
       { id: 3, name: 'Khánh Hòa' },
       { id: 4, name: 'Bắc Ninh' },
-      { id: 5, name: 'Cần Thơ' },
+      { id: 5, name: 'Cần Thơ' }
     ];
-    const huyen = [
+    const huyens = [
       { id: 1, tinhId: 1, name: 'Hiệp Hòa' },
       { id: 2, tinhId: 1, name: 'Yên Dũng' },
       { id: 3, tinhId: 1, name: 'Lục Nam' },
@@ -60,7 +60,7 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 38, tinhId: 5, name: ' Thốt Nốt' },
 
     ];
-    return {tinh,huyen};
+    return {tinhs,huyens};
   }
 
   // Overrides the genId method to ensure that a hero always has an id.
