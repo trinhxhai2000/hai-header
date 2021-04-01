@@ -24,8 +24,9 @@ export class HaiSwitchComponent implements OnInit, ControlValueAccessor  {
   onChange: any = () => {}
   onTouch: any = () => {}
 
-  isCheck :Boolean = false;
+  isCheck : boolean = false;
   isDisabled = false
+
   @Input() set readonly (value){
     this.isDisabled = value;
     this.setDisabledState(value);
@@ -37,6 +38,9 @@ export class HaiSwitchComponent implements OnInit, ControlValueAccessor  {
       this.onChange(val)
       this.onTouch(val)
     }
+  }
+  get value(): boolean{
+    return this.isCheck;
   }
 
   setDisabledState(isDisabled: boolean) {

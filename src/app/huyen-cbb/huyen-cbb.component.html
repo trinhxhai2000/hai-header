@@ -1,0 +1,5 @@
+<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" (focus)="onTouched()" (change)="handleOnHuyenChange($event)"  [disabled]="disabled" >
+  <option disabled selected hidden>-- Select a province --</option>
+  <option *ngFor="let huyen of huyens" [value]="huyen.id" [selected]="isSelect(huyen.id)" >{{huyen.name}}</option>
+</select>
+

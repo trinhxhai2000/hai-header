@@ -1,3 +1,6 @@
+
+
+
 <!--
 <app-hai-page-header [title]="title"  (backClickEvent)="parentClickEvent()">
 </app-hai-page-header>
@@ -14,21 +17,15 @@ from parent : {{exIsCheck}}
 <button (click)="doDisable()" >
   Disable
 </button>
+
+<app-tinh-cbb [disabled]="disableCbb" (onChange)="onTouchParent()" >
+</app-tinh-cbb>
+
 -->
-<table>
-  <tr>
-    <td>
 
-    <app-tinh-cbb >
-    </app-tinh-cbb>
-
-    </td>
-    <td>
-      <button type="button" class="btn btn-primary">Disable</button>
-      <br>
-      <button type="button" class="btn btn-primary">Disable</button>
-    </td>
-  </tr>
-</table>
-
-
+<!--
+<app-list-data>
+</app-list-data>
+-->
+<app-mform>
+</app-mform>

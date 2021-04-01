@@ -12,6 +12,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { TinhCbbComponent } from './tinh-cbb/tinh-cbb.component';
+import { TestingComponent } from './testing/testing.component';
+import { MformComponent } from './mform/mform.component';
+import { ListDataComponent } from './list-data/list-data.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { TinhCbbComponent } from './tinh-cbb/tinh-cbb.component';
     HaiPageHeader2Component,
     HaiSwitchComponent,
     HuyenCbbComponent,
-    TinhCbbComponent
+    TinhCbbComponent,
+    TestingComponent,
+    MformComponent,
+    ListDataComponent
   ],
   imports: [
     BrowserModule,

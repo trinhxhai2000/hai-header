@@ -9,11 +9,11 @@ import { Tinh } from './tinh';
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const tinhs = [
-      { id: 1, name: 'Bắc Giang' },
-      { id: 2, name: 'Hà Nội' },
-      { id: 3, name: 'Khánh Hòa' },
-      { id: 4, name: 'Bắc Ninh' },
-      { id: 5, name: 'Cần Thơ' }
+      { id: 1, name: 'Bắc Giang', TTTTU: false },
+      { id: 2, name: 'Hà Nội' , TTTTU: false },
+      { id: 3, name: 'Khánh Hòa' , TTTTU: false },
+      { id: 4, name: 'Bắc Ninh' , TTTTU: true },
+      { id: 5, name: 'Cần Thơ' , TTTTU: false },
     ];
     const huyens = [
       { id: 1, tinhId: 1, name: 'Hiệp Hòa' },

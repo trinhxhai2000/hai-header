@@ -1,15 +1,5 @@
-<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" (change)="handleOnTinhChange($event)" (focus)="onTouched()" [disabled]="isDisabled" >
-  <!--
-  <option value="-1">Chọn tỉnh:</option>
-  -->
+<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" (focus)="onTouched()" (change)="handleOnTinhChange($event)"  [disabled]="disabled" >
   <option disabled selected hidden>-- Select a province --</option>
   <option *ngFor="let tinh of tinhs" [value]="tinh.id" [selected]="isSelect(tinh.id)" >{{tinh.name}}</option>
 </select>
-<br>
-<select  >
-  <!--
-  <option value="-1">Chọn tỉnh:</option>
-  -->
-  <option disabled selected hidden>-- Select a huyen --</option>
-  <option *ngFor="let huyen of curHuyens" [value]="huyen.id" [selected]="isSelect(huyen.id)" >{{huyen.name}}</option>
-</select>
+

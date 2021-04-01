@@ -10,6 +10,9 @@ import { Observable, of } from "rxjs"
 })
 export class TinhService {
   private apiUrl = 'api'
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
   constructor(
     private http: HttpClient
   ) { }
@@ -47,4 +50,13 @@ export class TinhService {
       return of(result as T);
     };
   }
+
+
+/** POST: add a new hero to the server */
+addTinh(tinh: Tinh): Observable<Tinh> {
+  return this.http.post<Tinh>(this.apiUrl+'/tinhs', tinh, this.httpOptions).pipe(
+    tap((newTinh: Tinh) => console.log(`added hero w/ id=${newTinh.id}`)),
+    catchError(this.handleError<Tinh>('addHero'))
+  );
+}
 }

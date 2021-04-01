@@ -1,0 +1,142 @@
+<br>
+<br>
+<div class = "container">
+  <h3>Thêm tỉnh</h3>
+  <table class="table">
+    <tr>
+      <td>
+        Tên Tỉnh:
+      </td>
+      <td>
+        <input type="text">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Trực thuộc trung ương:
+      </td>
+      <td>
+        <app-hai-switch> </app-hai-switch>
+      </td>
+    </tr>
+    <tr>
+    <td>
+      <button (click)="addTinh(deuCurTinh)" >Thêm Tỉnh</button>
+    </td>
+    <td>
+
+    </td>
+    </tr>
+  </table>
+</div>
+<div class = "container">
+  <h3>Thêm huyện: </h3>
+  <table class="table">
+    <tr>
+      <td>
+        Tên Huyện:
+      </td>
+      <td>
+        <input type="text">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Tỉnh
+      </td>
+      <td>
+        <app-tinh-cbb required >
+        </app-tinh-cbb>
+      </td>
+    </tr>
+    <tr>
+    <td>
+      <button>Thêm Huyện</button>
+    </td>
+    <td>
+
+    </td>
+    </tr>
+  </table>
+</div>
+
+<div class = "container">
+  <h3>Xóa/Sửa:</h3>
+  <table class="table">
+    <tr>
+      <td>
+        Tỉnh
+      </td>
+      <td>
+        <app-tinh-cbb [(ngModel)]="deuCurTinh" ></app-tinh-cbb>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Huyện
+      </td>
+      <td>
+        <app-huyen-cbb [tinhId] = "deuCurTinh.id"
+          [(ngModel)]="deuCurHuyen"
+        >
+        </app-huyen-cbb>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <tr>
+            <td>
+              <label for="">Tên tỉnh</label>
+            </td>
+            <td>
+              <input type="text" [(ngModel)] = "deuCurTinh.name" >
+            </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="">Tên tỉnh</label>
+          </td>
+          <td>
+            <app-hai-switch [(ngModel)]="deuCurTinh.TTTTU" >
+            </app-hai-switch>
+          </td>
+        </tr>
+
+      </td>
+      <td>
+
+      <tr>
+        <td>
+          <label for="">Tên tỉnh</label>
+        </td>
+        <td>
+          <app-tinh-cbb [(ngModel)]="deuCurTinh" >
+
+          </app-tinh-cbb>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="">Tên huyện</label>
+        </td>
+        <td>
+          <input type="text" [(ngModel)]="deuCurHuyen.name" >
+        </td>
+    </tr>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button>Xóa tỉnh</button>
+        <button>Sửa tỉnh</button>
+        <button hidden>Lưu tỉnh</button>
+        <button hidden>Hủy</button>
+      </td>
+      <td>
+        <button>Xóa tỉnh</button>
+        <button>Sửa tỉnh</button>
+        <button hidden>Hủy</button>
+      </td>
+    </tr>
+  </table>
+</div>

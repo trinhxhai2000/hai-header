@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { TinhService } from '../tinh.service';
 import { Observable, of } from "rxjs"
 import { Tinh } from '../tinh';
-import { Huyen } from '../huyen';
 import {Input, Output, forwardRef, EventEmitter} from '@angular/core'
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
@@ -19,7 +18,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   ]
 })
 
-export class TinhCbbComponent implements OnInit, ControlValueAccessor {
+export class TinhCbbComponent implements ControlValueAccessor,OnInit  {
   tinhs: Tinh[] = [];
   constructor(
     private tinhService : TinhService
@@ -27,8 +26,6 @@ export class TinhCbbComponent implements OnInit, ControlValueAccessor {
 
   ngOnInit(): void {
     this.getTinhs()
-    this.getHuyen()
-    this.filterHuyenByTinh(this.curTinhId);
     console.log(this.curTinh);
   }
 
@@ -36,32 +33,26 @@ export class TinhCbbComponent implements OnInit, ControlValueAccessor {
     this.tinhService.getTinhs()
       .subscribe(tinhs => this.tinhs = tinhs);
   }
-  //huyen data
-  huyens: Huyen[]
-  curHuyens: Huyen[]
-  getHuyen(){
-    this.tinhService.getHuyens()
-     .subscribe(huyens => this.huyens = huyens);
-  }
-  filterHuyenByTinh(tinhId: number){
-    if (this.huyens !== undefined)
-      this.curHuyens = this.huyens.filter( huyen => (tinhId !== undefined && huyen.tinhId == tinhId) );
-    else{
-      console.log("Huyen is UNDEFINED")
-    }
-  }
 
   // implement ControlValueAccessor
-
+  //for tinh
   private curTinhId: number;
   private curTinh: Tinh;
-  isDisabled: boolean;
-  onChange: (tinh: any) => void
-  = function(){
-    console.log("default onChange function be called !");
+  _disabled: boolean;
+  get disabled(){
+    return this._disabled;
+  }
+
+  @Input() set disabled(value: boolean){
+     this._disabled = value;
+    // this.setDisabledState(this._disabled);
   };
-  onTouched: () => void
-  = function(){
+
+  @Input() onChange: (tinh: any) => void
+  =  function(){
+    console.log("default onChange function be called !");
+  }
+  onTouched(): void{
     console.log("default onTouch function be called !");
   };
 
@@ -70,6 +61,7 @@ export class TinhCbbComponent implements OnInit, ControlValueAccessor {
   }
 
   registerOnChange(fn: any) {
+    console.log("Register on Change !");
     this.onChange = fn;
   }
 
@@ -78,25 +70,22 @@ export class TinhCbbComponent implements OnInit, ControlValueAccessor {
   }
 
   setDisabledState(isDisabled: boolean) {
-    console.log("shiet");
-    this.isDisabled = isDisabled;
-
+    console.log("setDisable be call in Tinh cbb");
+    this.disabled= isDisabled;
   }
-
   //
   isSelect(tinhId: number): boolean{
     return !this.curTinh ? false : (tinhId === this.curTinh.id);
   }
   handleOnTinhChange(e) {
-
+    console.log("handle one Change Tinh cbvb")
     const tinhId = parseInt(e.target.value);
     this.curTinhId = tinhId;
-    this.filterHuyenByTinh(this.curTinhId);
     console.log(tinhId);
     const tinhSelect = this.tinhs.find(tinh => tinh.id === tinhId);
     this.writeValue(tinhSelect);
     this.onChange(tinhSelect);
+    console.log("tinhSelect:", tinhSelect);
   }
-
 
 }
