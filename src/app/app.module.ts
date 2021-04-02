@@ -15,6 +15,7 @@ import { TinhCbbComponent } from './tinh-cbb/tinh-cbb.component';
 import { TestingComponent } from './testing/testing.component';
 import { MformComponent } from './mform/mform.component';
 import { ListDataComponent } from './list-data/list-data.component';
+import { TinhDataControllerComponent } from './tinh-data-controller/tinh-data-controller.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ListDataComponent } from './list-data/list-data.component';
     TinhCbbComponent,
     TestingComponent,
     MformComponent,
-    ListDataComponent
+    ListDataComponent,
+    TinhDataControllerComponent
   ],
   imports: [
     BrowserModule,

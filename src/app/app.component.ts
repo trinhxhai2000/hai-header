@@ -9,26 +9,5 @@ import { Observable, of } from "rxjs"
 })
 
 export class AppComponent {
-  myTitle = "Parent title"
-  mySubtitle = "Parent subtitle"
-
-  // checkbox
-  exIsCheck : boolean = false
-  parentClickEvent(){
-    alert("this is parent click event")
-  }
-
-  // cbb
-  curTinh
-  disableCbb = false
-  doDisable(){
-    console.log(this.disableCbb)
-    this.disableCbb = !this.disableCbb;
-  }
-  onTouchParent(): void{
-    console.log("this is parent touhchinng method")
-  }
-
-
 }
 

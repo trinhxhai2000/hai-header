@@ -8,7 +8,7 @@
         Tên Tỉnh:
       </td>
       <td>
-        <input type="text">
+        <input type="text" [(ngModel)] = "addingTinh.name">
       </td>
     </tr>
     <tr>
@@ -16,12 +16,14 @@
         Trực thuộc trung ương:
       </td>
       <td>
-        <app-hai-switch> </app-hai-switch>
+        <app-hai-switch
+          [(ngModel)]="addingTinh.TTTTU"
+        > </app-hai-switch>
       </td>
     </tr>
     <tr>
     <td>
-      <button (click)="addTinh(deuCurTinh)" >Thêm Tỉnh</button>
+      <button (click)="addTinh(addingTinh)" >Thêm Tỉnh</button>
     </td>
     <td>
 
@@ -37,7 +39,9 @@
         Tên Huyện:
       </td>
       <td>
-        <input type="text">
+        <input type="text"
+          [(ngModel)]="addingHuyen.name"
+        >
       </td>
     </tr>
     <tr>
@@ -45,18 +49,25 @@
         Tỉnh
       </td>
       <td>
-        <app-tinh-cbb required >
+        <app-tinh-cbb
+          [tinhs] = "curTinhs"
+          [(ngModel)] = "addingTinhHuyen"
+          required
+        >
         </app-tinh-cbb>
       </td>
     </tr>
     <tr>
     <td>
-      <button>Thêm Huyện</button>
+      <button
+      (click)="addHuyen(addingHuyen,addingTinhHuyen)"
+      >Thêm Huyện</button>
     </td>
     <td>
 
     </td>
     </tr>
+    Adding Tinh: {{addingTinh.name}}
   </table>
 </div>
 
@@ -68,7 +79,11 @@
         Tỉnh
       </td>
       <td>
-        <app-tinh-cbb [(ngModel)]="deuCurTinh" ></app-tinh-cbb>
+        <app-tinh-cbb
+          [tinhs] = "curTinhs"
+          [(ngModel)]="deuCurTinh"
+          >
+        </app-tinh-cbb>
       </td>
     </tr>
     <tr>
@@ -76,7 +91,8 @@
         Huyện
       </td>
       <td>
-        <app-huyen-cbb [tinhId] = "deuCurTinh.id"
+        <app-huyen-cbb
+          [huyens] = "curHuyens"
           [(ngModel)]="deuCurHuyen"
         >
         </app-huyen-cbb>
@@ -110,9 +126,13 @@
           <label for="">Tên tỉnh</label>
         </td>
         <td>
-          <app-tinh-cbb [(ngModel)]="deuCurTinh" >
+          <app-tinh-cbb
+            [tinhs] = "curTinhs"
+            [(ngModel)]="deuCurTinh"
+          >
 
           </app-tinh-cbb>
+          {{deuCurTinh | json}}
         </td>
       </tr>
       <tr>
@@ -127,13 +147,24 @@
     </tr>
     <tr>
       <td>
-        <button>Xóa tỉnh</button>
-        <button>Sửa tỉnh</button>
+        <button
+        (click)="deleteTinh(deuCurTinh)"
+        >
+          Xóa tỉnh
+        </button>
+        <button
+          (click)="doShit()"
+        >
+        Sửa tỉnh</button>
         <button hidden>Lưu tỉnh</button>
         <button hidden>Hủy</button>
       </td>
       <td>
-        <button>Xóa tỉnh</button>
+        <button
+          (click)="deleteHuyen(deuCurHuyen)"
+        >
+          Xóa huyện
+        </button>
         <button>Sửa tỉnh</button>
         <button hidden>Hủy</button>
       </td>

@@ -1,0 +1,7 @@
+<app-tinh-cbb
+  [tinhs]="curTinhs"
+  [(ngModel)]="tmpTinh"
+>
+</app-tinh-cbb>
+<button (click)="addTinh()">add tinh</button>
+<input type="text" [(ngModel)]="tmpTinh==undefined ? defaultTinh.name : tmpTinh.name">
