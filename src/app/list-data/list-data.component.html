@@ -7,6 +7,7 @@
             </td>
             <td>
               <app-tinh-cbb type="select"  id="tinh" require
+                [tinhs] ="curTinhs"
                 [(ngModel)]="tmpTinh" name="tinh"
                 #name="ngModel"
               >
@@ -38,7 +39,7 @@
               <app-huyen-cbb type="select"
 
                 id="huyen"
-                [tinhId] = "tmpTinh.id"
+                [huyens] = "curHuyens"
                 [(ngModel)]="tmpHuyen"
                 name="huyen"
               >

@@ -18,37 +18,13 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   ]
 })
 export class HuyenCbbComponent implements OnInit,ControlValueAccessor {
-  huyens: Huyen[] = [];
-  orihuyens: Huyen[] = [];
+  @Input() huyens: Huyen[] = [];
   constructor(
-    private tinhService : TinhService
   ) {
 
   }
 
   ngOnInit(): void {
-    console.log("init",this.huyens.length);
-    this.getHuyens()
-    this.tinhId = 0;
-  }
-
-  getHuyens(){
-    this.tinhService.getHuyens()
-    .subscribe(huyens => {
-      this.huyens = huyens ;
-      this.orihuyens = huyens;
-    } );
-  }
-  _tinhId: number
-  @Input() set tinhId(value: number){
-    console.log("Huyen cbb set tinh id", value, this.huyens.length)
-
-    this._tinhId = value
-    if (this._tinhId != -1) {
-    this.huyens = this.orihuyens.filter(huyen => huyen.tinhId === value)
-    // this.onChange(this.curHuyen)
-    // curHuyen
-    }
   }
 
   private curHuyenid: number;
